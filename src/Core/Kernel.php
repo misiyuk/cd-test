@@ -14,7 +14,7 @@ class Kernel
         $route = new Router();
         try {
             $action = $route->getAction($request->server('REQUEST_URI'));
-            $controller = new $action[0]();
+            $controller = new $action[0]($request);
             $response = $controller->{$action[1]}();
         } catch (\Exception $e) {
             if ($e instanceof RouteNotFoundException) {

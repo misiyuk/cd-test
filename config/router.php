@@ -1,6 +1,9 @@
 <?php
 
+use App\Controller\AlbumController;
+
 return [
-    '/' => [\App\Controller\SiteController::class, 'index'],
-    '/json' => [\App\Controller\SiteController::class, 'jsonTest'],
+    '/' => [AlbumController::class, 'index'],
+    '/edit' => [AlbumController::class, 'edit'],
+    '/new' => [AlbumController::class, 'new'],
 ];

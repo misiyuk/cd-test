@@ -1,9 +1,9 @@
-FROM php:7.3-fpm
+FROM php:7.2-fpm
 
 RUN apt-get update
-RUN apt-get install -y unzip mysql-client libicu-dev libzip-dev wget && docker-php-ext-install pdo_mysql opcache zip ctype
+RUN apt-get install -y mysql-client libicu-dev libzip-dev && docker-php-ext-install pdo pdo_mysql opcache zip ctype
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-install intl
-RUN wget https://getcomposer.org/installer -O - -q | php -- --install-dir=/bin --filename=composer --quiet
+RUN docker-php-ext-install mysqli
 
 WORKDIR /var/www
